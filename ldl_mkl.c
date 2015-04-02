@@ -50,10 +50,14 @@ int main()
 		exec_time = exec_time/1000;                         //dividing by 1000 because we have executed 1000 iterations
 			
 		// open file where the output should be saved
-		FILE *fp = fopen("output.cvs", "w"); 
+		FILE *fp = fopen("output.csv", "w"); 
 		fprintf(fp, "The datasize is %d", n);
 		fprintf(fp, "The execution for LDLT decomposition of a %d by %d matrix is %f\n", n, n, exec_time);
 		fclose(fp);
+		
+		free(A);
+		free(e);
+		free(d);
 	}
 
 	return 0;
