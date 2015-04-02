@@ -4,7 +4,7 @@
 #include <mkl_lapacke.h>
 #include <time.h>
 #include <math.h>
-#include <team4_readme.h>
+#include <readme.h>
 
 /* Macros */
 #define DATASIZE     15 //1-15
