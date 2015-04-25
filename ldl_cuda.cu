@@ -65,7 +65,7 @@ int main()
 		
 		//enabling the handle
 		cusolverDnHandle_t handle;	
-    	cusolverDnCreate(&handle);
+    		cusolverDnCreate(&handle);
 		
 		// 
 		int *devInfo; 
