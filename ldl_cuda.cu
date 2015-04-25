@@ -90,22 +90,7 @@ int main()
 			status_ldl = cusolverDnDsytrf(handle, CUBLAS_FILL_MODE_LOWER, n, Z, lda, ipiv, work, sizeof_work, devInfo);
 			
 			printf ("\n The device info is %d\n", devInfo);
-			
-			if ( status_ldl == CUSOLVER_STATUS_SUCCESS ) {
-				printf ("\nThe status of the LDLT decomposition is CUSOLVER_STATUS_SUCCESS");
-			}
-			else if ( status_ldl == CUSOLVER_STATUS_NOT_INITIALIZED ) {
-				printf ("\nThe status of the LDLT decomposition is CUSOLVER_STATUS_NOT_INITIALIZED");
-			}
-			else if ( status_ldl == CUSOLVER_STATUS_INVALID_VALUE ) {
-				printf ("\nThe status of the LDLT decomposition is CUSOLVER_STATUS_INVALID_VALUE");
-			}
-			else if ( status_ldl == CUSOLVER_STATUS_ARCH_MISMATCH ) {
-				printf ("\nThe status of the LDLT decomposition is CUSOLVER_STATUS_ARCH_MISMATCH");
-			}
-			else if ( status_ldl == CUSOLVER_STATUS_INTERNAL_ERROR ) {
-				printf ("\nThe status of the LDLT decomposition is CUSOLVER_STATUS_INTERNAL_ERROR");
-			}
+		
 		} 
 		end = timer_val();
 		//end = cusolver_test_seconds();
@@ -128,7 +113,21 @@ int main()
 	}
 }	
 
-
+if ( status_ldl == CUSOLVER_STATUS_SUCCESS ) {
+				printf ("\nThe status of the LDLT decomposition is CUSOLVER_STATUS_SUCCESS");
+			}
+			else if ( status_ldl == CUSOLVER_STATUS_NOT_INITIALIZED ) {
+				printf ("\nThe status of the LDLT decomposition is CUSOLVER_STATUS_NOT_INITIALIZED");
+			}
+			else if ( status_ldl == CUSOLVER_STATUS_INVALID_VALUE ) {
+				printf ("\nThe status of the LDLT decomposition is CUSOLVER_STATUS_INVALID_VALUE");
+			}
+			else if ( status_ldl == CUSOLVER_STATUS_ARCH_MISMATCH ) {
+				printf ("\nThe status of the LDLT decomposition is CUSOLVER_STATUS_ARCH_MISMATCH");
+			}
+			else if ( status_ldl == CUSOLVER_STATUS_INTERNAL_ERROR ) {
+				printf ("\nThe status of the LDLT decomposition is CUSOLVER_STATUS_INTERNAL_ERROR");
+			}
 /*things to ask
 ask if devInfo needs allocation of memory and the cmds to exxecute cuda 
 cusolver_test_seconds not working
