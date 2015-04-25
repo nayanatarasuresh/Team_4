@@ -94,7 +94,7 @@ int main()
 		
 		
 		exec_time = (double)(end - start);
-		//exec_time = exec_time;                         //dividing by 1000 because we have executed 1000 iterations
+		exec_time = exec_time/1000;                   //dividing by 1000 because we have executed 1000 iterations
 		
 		printf ("The execution for LDLT decomposition of a %d by %d matrix is %.15f s\n", n, n, exec_time/1000.00);
 		//printf ("The execution for LDLT decomposition of a %d by %d matrix is %.8f s\n", n, n, exec_time*1000);
