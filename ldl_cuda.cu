@@ -74,24 +74,24 @@ int main()
 		lda = n;
 		int sizeof_work = 0;
 		buff_size = cusolverDnDsytrf_bufferSize(handle, n, Z, lda, &sizeof_work);	
-		
+			//start = cusolver_test_seconds();
+			
 		double *work;
 		cudaMalloc(&work, sizeof_work * sizeof(double));
 		int *ipiv;
 		cudaMalloc(&ipiv, n*sizeof(int));
 		
 		start = timer_val();
-		//start = cusolver_test_seconds();
+	
 		for(j=0; j<1000; j++)	
 		{
 			// Computing the LDLT decomposition
 			status_ldl = cusolverDnDsytrf(handle, CUBLAS_FILL_MODE_LOWER, n, Z, lda, ipiv, work, sizeof_work, devInfo);
 			
 			printf ("\n The device info is %d\n", devInfo);
-		
 		} 
 		end = timer_val();
-		//end = cusolver_test_seconds();
+		
 		
 		exec_time = (double)(end - start);
 		//exec_time = exec_time;                         //dividing by 1000 because we have executed 1000 iterations
@@ -110,6 +110,8 @@ int main()
 		cudaFree(Z);
 	}
 }	
+
+//end = cusolver_test_seconds();
 //cusolverDnDsytrf(cusolverDnHandle_t handle,cublasFillMode_t uplo,int n,double *A,int lda,int *ipiv,double *work,int lwork,int *devInfo );
 if ( status_ldl == CUSOLVER_STATUS_SUCCESS ) {
 				printf ("\nThe status of the LDLT decomposition is CUSOLVER_STATUS_SUCCESS");
