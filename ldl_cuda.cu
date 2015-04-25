@@ -84,8 +84,6 @@ int main()
 		//start = cusolver_test_seconds();
 		for(j=0; j<1000; j++)	
 		{
-		//cusolverDnDsytrf(cusolverDnHandle_t handle,cublasFillMode_t uplo,int n,double *A,int lda,int *ipiv,double *work,int lwork,int *devInfo );
-		
 			// Computing the LDLT decomposition
 			status_ldl = cusolverDnDsytrf(handle, CUBLAS_FILL_MODE_LOWER, n, Z, lda, ipiv, work, sizeof_work, devInfo);
 			
@@ -112,7 +110,7 @@ int main()
 		cudaFree(Z);
 	}
 }	
-
+//cusolverDnDsytrf(cusolverDnHandle_t handle,cublasFillMode_t uplo,int n,double *A,int lda,int *ipiv,double *work,int lwork,int *devInfo );
 if ( status_ldl == CUSOLVER_STATUS_SUCCESS ) {
 				printf ("\nThe status of the LDLT decomposition is CUSOLVER_STATUS_SUCCESS");
 			}
